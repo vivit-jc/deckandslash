@@ -1,0 +1,43 @@
+.card{
+	width: 90px;
+	height: 80px;
+	border: solid;
+	margin-right: 6px;
+}
+#dungeon{
+	display: flex;
+	width: 600px;
+	height: 100px;
+}
+#dungeon .card{
+	position: absolute;
+}
+
+#cont{
+}
+#infobox{
+	margin: 10px;
+}
+#msg{
+	border: medium solid;
+	height: 100px;
+	width: 500px;
+}
+#main{
+	display: flex;
+}
+#equip{
+	display: flex;
+	height: 100px;
+}
+#bag{
+	display: flex;
+	height: 100px;
+}
+div{
+	margin-bottom:5px;
+}
+
+.use, .equip{
+  color: blue;
+}
