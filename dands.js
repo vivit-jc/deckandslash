@@ -20,43 +20,41 @@ function makeStr(data){
   return str
 }
 
-function makeItem($dom) {
-    if ($dom.find('button').length === 0) {
-        if ($dom.attr('data-equip')) {
-            $dom.append('<button>装備</button>');
-        } else {
-            $dom.append('<button>使う</button>');
-        }
+function addButtonToItem($dom) {
+    if ($dom.attr('data-equip')) {
+        $dom.append('<button class=equip>装備</button>');
     } else {
-        $dom.find('button').remove();
+        $dom.append('<button class=use>使う</button>');
     }
+    $dom.append('<button class=drop>捨てる</button>');
 }
 
+function removeButtonOfItem($dom) {
+    $dom.find('button').remove();
+}
+
+function dropItem($card) {
+    $card.remove();
+    removeButtonOfItem($card);
+    $("div#dungeon").append($card.clone(true));
+}
 
 var bindEvents = function () {
     $("body").on('click', 'button', function () {
         var $btn = $(this);
-
-        if ($btn.parent().attr('data-type') === 'item') {
-            console.log("item");
-        } else {
-            console.log("click");
+        if ($btn.attr("class") === "drop") {
+            dropItem($btn.closest('div.card'))
         }
     });
 
-    // 動的に生成されたdiv.card要素のクリックイベントを監視    
+    // 動的に生成されたdiv.card要素のクリックイベントを監視
     $("body").on('click', 'div.card', function (e) {
         var $card = $(e.target).closest('div.card');
         if ($card.attr('data-type') === "item") {
-            //ここ console.log($(this).parent("div#dungeon"))
             if ($card.parent().attr("id") === "dungeon") {
                 $card.remove();
-                makeItem($card);
+                addButtonToItem($card);
                 $("div#bag").append($card.clone(true));
-            } else if ($card.parent().attr("id") === "bag") {
-                $card.remove();
-                makeItem($card);
-                $("div#dungeon").append($card.clone(true));
             }
         }
     });
@@ -68,7 +66,6 @@ var init = function (data) {
         darray[index] = shuffle(val);
     });
     console.info(darray);
-    //var d = $.data($('div#dungeon'), "deck", darray);
 
     for (var i = 0; i < 5; i++) {
         var carddata = darray[0].pop();
