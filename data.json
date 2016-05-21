@@ -1,7 +1,16 @@
 [
 [
 {"name":"スライム","type":"monster","power":1},
-
+{"name":"コボルト","type":"monster","power":2},
+{"name":"メデューサ","type":"monster","power":3,"effect":"med"},
+{"name":"スケルトン","type":"monster","power":4,"sub":"ゴースト"},
+{"name":"ゴブリン","type":"monster","power":2},
+{"name":"金貨","type":"item","value":6},
+{"name":"コボルト","type":"monster","power":2},
+{"name":"メデューサ","type":"monster","power":3,"effect":"med"},
+{"name":"スケルトン","type":"monster","power":4,"sub":"ゴースト"},
+{"name":"ゴブリン","type":"monster","power":2},
+{"name":"金貨","type":"item","value":6},
 {"name":"コボルト","type":"monster","power":2},
 {"name":"メデューサ","type":"monster","power":3,"effect":"med"},
 {"name":"スケルトン","type":"monster","power":4,"sub":"ゴースト"},

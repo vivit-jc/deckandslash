@@ -37,7 +37,6 @@
 div{
 	margin-bottom:5px;
 }
-
-.use, .equip{
-  color: blue;
+#trash, #removed{
+	display: none;
 }
